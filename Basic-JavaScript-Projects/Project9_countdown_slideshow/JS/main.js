@@ -1,24 +1,48 @@
-let slidePosition = 1;
-showSlides(slidePosition);
+let slideIndex = 0;
+showSlides();
 
-function changeSlide(n) {
-    showSlides(slidePosition += n);
-}
-
-function showSlides(n) {
+function showSlides() {
     let slides = document.getElementsByClassName("mySlides");
 
-    if (n > slides.length) {
-        slidePosition = 1;
-    }
-
-    if (n < 1) {
-        slidePosition = slides.length;
-    }
-
+    // Hide all slides
     for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
 
-    slides[slidePosition - 1].style.display = "block";
+    // Move to next slide
+    slideIndex++;
+
+    if (slideIndex > slides.length) {
+        slideIndex = 1;
+    }
+
+    // Show current slide
+    slides[slideIndex - 1].style.display = "block";
+
+    // Change image every 7 seconds
+    setTimeout(showSlides, 7000);
 }
+
+// This variable stores how many seconds are left
+var timeLeft = 7;
+
+// This function runs the countdown
+function countdown() {
+
+    // Display the current time remaining on the page
+    document.getElementById("timer").innerHTML = 
+        "Time remaining: " + timeLeft + " seconds";
+
+    // Decrease the time by 1 each time the function runs
+    timeLeft--;
+
+    // When the countdown reaches 0, stop the timer
+    if (timeLeft < 0) {
+        clearInterval(timerInterval); // Stops the countdown
+        document.getElementById("timer").innerHTML = 
+            "Time's up!";
+    }
+}
+
+// This calls the countdown() function every 1 second (1000 milliseconds)
+var timerInterval = setInterval(countdown, 1000);
