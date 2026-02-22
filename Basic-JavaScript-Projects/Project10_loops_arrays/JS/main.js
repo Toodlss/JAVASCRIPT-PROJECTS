@@ -1,3 +1,4 @@
+//adds a list of instruments
 function forLoop() {
     var Instruments = ["Guitar", "Drums", "Piano", "bass", "Violin", "trumpet", "Flute"];
     var Content = "";
@@ -9,14 +10,14 @@ function forLoop() {
 
     document.getElementById("list_of_Instruments").innerHTML = Content;
 }
-
+//adds a sentence about my favorite fruit
 function showArray() {
     var Fruits = ["Apple", "Banana", "Cherry", "Orange", "Grapes"];
 
     document.getElementById("Array").innerHTML =
-        "One of my favorite fruits is: " + Fruits[2];
+        "One of my favorite fruits is: " + Fruits[4];
 }
-
+//adds a list of instruments
 function constant_function() {
     const Musical_Instrument = {
         type: "Guitar",
@@ -30,14 +31,14 @@ function constant_function() {
         Musical_Instrument.brand + " " +
         Musical_Instrument.type + ".";
 }
-
+//adds a sentence
 function let_example() {
 
     let message = "This was created using the let keyword.";
 
     document.getElementById("Let").innerHTML = message;
 }
-
+//adds a sentence
 function objectMethodExample() {
 
     let Car = {
