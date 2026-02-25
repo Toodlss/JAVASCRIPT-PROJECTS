@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Running JavaScript in the Console</title>
+</head>
+
+<body>
+    <p id="globalVariables" onclick="global()">Global - click here</p>
+    <p id="localVariables" onclick="local()">Local - click here</p>
+    <hr>
+
+    <p id="concat" onclick="concatenate()">Click here for concatenated sentence</p>
+    <hr>
+
+    <button onclick="newCourse()">Click here for new course</button>
+    <p id="displayCourse"></p>
+
+    <p id="displayAge"></p>
+    <script>
+        //a and b are global variables that can be edited in the console
+        let a = 3;
+        let b = 4;
+
+        function global() {
+            let result = a + b;
+
+            document.getElementById("globalVariables").innerHTML =
+                "Global variable a (" + a + ") plus global variable b (" +
+                b + ") equals " + result;
+        }
+
+        function local() {
+            let c = 4;
+            let b = 3;
+            let result = c + b;
+
+            document.getElementById("localVariables").innerHTML =
+                "Local variable c (" + c + ") plus local variable b (" +
+                b + ") equals " + result;
+        }
+        let sentance1;
+        let sentance2;
+
+        function concatenate() {
+            let concatSent = sentence1.concat(sentence2);
+
+            document.getElementById("concat").innerHTML = concatSent;
+
+            console.log(concatSent);
+
+        }
+
+        function Course(Name, Type, Duration) {
+            this.courseName = "Today's new course is: " + Name + "<br>";
+            this.coursetype = "type: " + type + "<br>";
+            this.courseDur = "course Length: " + Duration + " hours";
+        }
+
+        let js = new Course("JavaScript", "Code", 55);
+        let py = new Course("Python", "Code", 90);
+
+        //get user input and calculate the age
+        //based on the year
+        let year = prompt("Type in the year you were born");
+        let yearNow = new Date().getFullYear();
+        let age = Math.floor(yearNow - year); 
+    </script>
+
+</body>
+
+</html>
